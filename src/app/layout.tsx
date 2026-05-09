@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Figtree } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import GlobalWrapper from "@/wrapper/GlobalWrapper";
 
 const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -41,14 +42,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {" "}
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <GlobalWrapper>{children}</GlobalWrapper>
       </body>
     </html>
   );
